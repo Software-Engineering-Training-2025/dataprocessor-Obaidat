@@ -19,7 +19,7 @@ class DataProcessorServiceTest {
     @BeforeEach
     void setup() throws Exception {
         svc = new DataProcessorService();
-        // Clean previous output (if any)
+        // CleanInterface previous output (if any)
         Path p = Paths.get("target", "result.txt");
         if (Files.exists(p)) {
             Files.delete(p);

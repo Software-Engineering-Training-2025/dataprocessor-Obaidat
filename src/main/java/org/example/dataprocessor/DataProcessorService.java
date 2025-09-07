@@ -1,8 +1,11 @@
 package org.example.dataprocessor;
 
+import org.example.dataprocessor.analyze.Analyze;
+import org.example.dataprocessor.clean.Clean;
 import org.example.dataprocessor.enums.AnalysisType;
 import org.example.dataprocessor.enums.CleaningType;
 import org.example.dataprocessor.enums.OutputType;
+import org.example.dataprocessor.output.Output;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -13,7 +16,7 @@ import java.util.*;
  * Students ONLY implement the process(...) method below.
  *
  * Requirements:
- * - Order: Clean -> Analyze -> Output -> Return result
+ * - Order: CleanInterface -> Analyze -> Output -> Return result
  * - Do NOT mutate the original input list
  * - Handle empties as specified in AnalysisType docs
  * - Output format EXACTLY: "Result = <value>"
@@ -37,6 +40,10 @@ public class DataProcessorService {
         // 2) Analyze cleaned array according to analysisType.
         // 3) Output according to outputType (console or target/result.txt).
         // 4) Return the numeric result.
+
+        List<Integer> cleanedList = Clean.cleaner(cleaningType).clean(data);
+        Double analyzedValue = Analyze.analyzer(analysisType).analyze(cleanedList);
+        Output.printer(outputType).print(analyzedValue);
 
         throw new UnsupportedOperationException("Student must implement process(...)");
     }

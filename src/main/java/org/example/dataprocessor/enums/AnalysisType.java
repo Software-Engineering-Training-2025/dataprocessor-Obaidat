@@ -13,5 +13,7 @@ public enum AnalysisType {
     P90_NEAREST_RANK,
 
     /** Sum of top-3 frequency counts (order by count desc, tiebreak by value asc); empty -> 0.0 */
-    TOP3_FREQUENT_COUNT_SUM
+    TOP3_FREQUENT_COUNT_SUM,
+
+    VARIANCE
 }
