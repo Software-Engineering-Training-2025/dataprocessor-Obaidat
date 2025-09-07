@@ -20,7 +20,7 @@ class DataProcessorServiceEdgeTest {
                 OutputType.CONSOLE,
                 List.of(-5, -1, -100)
         );
-        assertTrue(Double.isNaN(r));
+        median_even_correct(Double.isNaN(r));
     }
 
     @Test
